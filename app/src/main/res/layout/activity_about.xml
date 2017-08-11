@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:actionBarSize"
+        android:background="@color/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+    <View style="@style/LineStyle"/>
+
+    <TextView
+        style="@style/TextViewStyle"
+        android:layout_height="60dp"
+        android:gravity="start|center_vertical"
+        android:text="@string/about_contact_me"
+        android:textSize="24sp"/>
+
+    <View style="@style/LineStyle"/>
+
+    <TextView
+        android:id="@+id/tv_github"
+        style="@style/TextViewStyle"
+        android:gravity="start|center_vertical"/>
+
+    <View style="@style/LineStyle"/>
+
+    <TextView
+        android:id="@+id/tv_weibo"
+        style="@style/TextViewStyle"
+        android:gravity="start|center_vertical"/>
+
+    <View style="@style/LineStyle"/>
+
+    <TextView
+        android:id="@+id/tv_blog"
+        style="@style/TextViewStyle"
+        android:gravity="start|center_vertical"/>
+
+    <View style="@style/LineStyle"/>
+
+    <TextView
+        android:id="@+id/tv_jianshu"
+        style="@style/TextViewStyle"
+        android:gravity="start|center_vertical"/>
+
+    <View style="@style/LineStyle"/>
+
+    <TextView
+        android:id="@+id/tv_mail"
+        style="@style/TextViewStyle"
+        android:gravity="start|center_vertical"/>
+
+    <View style="@style/LineStyle"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:paddingEnd="48dp"
+        android:paddingLeft="48dp"
+        android:paddingRight="48dp"
+        android:paddingStart="48dp"
+        android:text="This is a demo for you to show how to use ShadowLayout and I hope you would like it.  \n---- lijiankun24"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="14sp"/>
+</LinearLayout>

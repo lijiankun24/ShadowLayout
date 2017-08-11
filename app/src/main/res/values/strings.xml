@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">ShadowLayout</string>
+
+    <!-- AboutActivity begin -->
+    <string name="about">about</string>
+    <string name="about_activity_title">About</string>
+    <string name="about_contact_me">Contact Me</string>
+    <string name="about_github"><![CDATA[\t Github: <font color=\'#3F51B5\'>%s</font>]]></string>
+    <string name="about_weibo"><![CDATA[\t Weibo: <font color=\'#3F51B5\'>%s(lijiankun24)</font>]]></string>
+    <string name="about_blog"><![CDATA[\t Blog: <font color=\'#3F51B5\'>%s</font>]]></string>
+    <string name="about_jianshu"><![CDATA[\t Jianshu: <font color=\'#3F51B5\'>%s</font>]]></string>
+    <string name="about_mail"><![CDATA[\t Mail: <font color=\'#3F51B5\'>%s</font>]]></string>
+    <!-- AboutActivity end -->
+</resources>
