@@ -1,4 +1,4 @@
-package com.lijiankun24.shadowlayout.about;
+package com.lijiankun24.shadowlayoutexample.about;
 
 /**
  * Author.java

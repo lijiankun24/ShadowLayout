@@ -1,4 +1,4 @@
-package com.lijiankun24.library;
+package com.lijiankun24.shadowlayoutexample;
 
 import org.junit.Test;
 

@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.lijiankun24.library.ShadowLayout
+            <com.lijiankun24.shadowlayout.ShadowLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -45,9 +45,9 @@
                     android:background="@android:color/white"
                     android:contentDescription="@null"
                     android:src="@mipmap/ic_launcher"/>
-            </com.lijiankun24.library.ShadowLayout>
+            </com.lijiankun24.shadowlayout.ShadowLayout>
 
-            <com.lijiankun24.library.ShadowLayout
+            <com.lijiankun24.shadowlayout.ShadowLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
@@ -77,9 +77,9 @@
                         android:text="ShadowLayout of FrameLayout's outer whit left|bottom sides shadow"
                         android:textSize="15sp"/>
                 </FrameLayout>
-            </com.lijiankun24.library.ShadowLayout>
+            </com.lijiankun24.shadowlayout.ShadowLayout>
 
-            <com.lijiankun24.library.ShadowLayout
+            <com.lijiankun24.shadowlayout.ShadowLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
@@ -108,9 +108,9 @@
                         android:text="ShadowLayout of LinearLayout's outer whit top|bottom sides shadow"
                         android:textSize="15sp"/>
                 </LinearLayout>
-            </com.lijiankun24.library.ShadowLayout>
+            </com.lijiankun24.shadowlayout.ShadowLayout>
 
-            <com.lijiankun24.library.ShadowLayout
+            <com.lijiankun24.shadowlayout.ShadowLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -143,9 +143,9 @@
                         android:text="ShadowLayout of RelativeLayout's outer whit left|bottom|right sides shadow"
                         android:textSize="15sp"/>
                 </RelativeLayout>
-            </com.lijiankun24.library.ShadowLayout>
+            </com.lijiankun24.shadowlayout.ShadowLayout>
 
-            <com.lijiankun24.library.ShadowLayout
+            <com.lijiankun24.shadowlayout.ShadowLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -169,7 +169,7 @@
                     android:text="This is a demo for you to show how to use ShadowLayout and I hope you would like it.  \n---- lijiankun24"
                     android:textColor="@android:color/darker_gray"
                     android:textSize="14sp"/>
-            </com.lijiankun24.library.ShadowLayout>
+            </com.lijiankun24.shadowlayout.ShadowLayout>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

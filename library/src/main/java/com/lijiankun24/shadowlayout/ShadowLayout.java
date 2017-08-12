@@ -1,4 +1,4 @@
-package com.lijiankun24.library;
+package com.lijiankun24.shadowlayout;
 
 import android.content.Context;
 import android.content.res.TypedArray;

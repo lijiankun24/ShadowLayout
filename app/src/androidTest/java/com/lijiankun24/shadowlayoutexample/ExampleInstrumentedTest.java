@@ -1,4 +1,4 @@
-package com.lijiankun24.shadowlayout;
+package com.lijiankun24.shadowlayoutexample;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

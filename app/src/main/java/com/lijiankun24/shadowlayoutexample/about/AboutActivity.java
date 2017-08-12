@@ -1,4 +1,4 @@
-package com.lijiankun24.shadowlayout.about;
+package com.lijiankun24.shadowlayoutexample.about;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -11,7 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import com.lijiankun24.shadowlayout.R;
+import com.lijiankun24.shadowlayoutexample.R;
 
 public class AboutActivity extends AppCompatActivity implements View.OnClickListener {
 

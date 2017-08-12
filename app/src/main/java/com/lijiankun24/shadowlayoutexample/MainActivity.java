@@ -1,4 +1,4 @@
-package com.lijiankun24.shadowlayout;
+package com.lijiankun24.shadowlayoutexample;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,7 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.lijiankun24.shadowlayout.about.AboutActivity;
+import com.lijiankun24.shadowlayoutexample.about.AboutActivity;
 
 public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuItemClickListener {
 
