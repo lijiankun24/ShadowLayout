@@ -12,7 +12,6 @@
         android:id="@+id/tool_bar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:layout_below="@+id/fake_status_bar"
         android:background="@color/colorPrimary"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
@@ -32,77 +31,145 @@
             <com.lijiankun24.library.ShadowLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="40dp"
-                app:shadowColor="#faff0000"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                app:shadowColor="#66000000"
                 app:shadowDx="0dp"
-                app:shadowDy="0dp"
+                app:shadowDy="3dp"
                 app:shadowRadius="10dp"
-                app:shadowSide="left|right">
+                app:shadowSide="all">
 
-                <TextView
-                    android:layout_width="200dp"
-                    android:layout_height="150dp"
-                    android:background="@android:color/holo_blue_light"
-                    android:gravity="center"
-                    android:text="Shadow View with FrameLayout"
-                    android:textSize="15sp"/>
-            </com.lijiankun24.library.ShadowLayout>
-
-            <com.lijiankun24.library.ShadowLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="40dp"
-                app:shadowColor="#fa00ff00"
-                app:shadowDx="0dp"
-                app:shadowDy="0dp"
-                app:shadowRadius="3dp">
-
-                <TextView
-                    android:id="@+id/activity_main_shadow_view_b"
+                <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@android:color/white"
-                    android:gravity="center"
-                    android:padding="30dp"
-                    android:text="Shadow View with LinearLayout"
-                    android:textSize="15sp"/>
+                    android:contentDescription="@null"
+                    android:src="@mipmap/ic_launcher"/>
             </com.lijiankun24.library.ShadowLayout>
 
             <com.lijiankun24.library.ShadowLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="40dp"
-                app:shadowColor="#fa00ff00"
+                android:layout_marginTop="30dp"
+                app:shadowColor="#770000FF"
                 app:shadowDx="0dp"
-                app:shadowDy="3dp"
-                app:shadowRadius="10dp">
+                app:shadowDy="0dp"
+                app:shadowRadius="5dp"
+                app:shadowSide="left|bottom">
 
-                <LinearLayout
-                    android:id="@+id/activity_main_shadow_view_c"
+                <FrameLayout
+                    android:id="@+id/activity_main_shadow_view_a"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:color/white"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="8dp">
+                    android:gravity="center">
 
                     <ImageView
-                        android:id="@+id/activity_main_shadow_view_c_iv"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:padding="10dp"
+                        android:contentDescription="@null"
                         android:src="@mipmap/ic_launcher"/>
 
                     <TextView
-                        android:id="@+id/activity_main_shadow_view_c_tv"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:text="Shadow View with LinearLayout"
+                        android:text="ShadowLayout of FrameLayout's outer whit left|bottom sides shadow"
+                        android:textSize="15sp"/>
+                </FrameLayout>
+            </com.lijiankun24.library.ShadowLayout>
+
+            <com.lijiankun24.library.ShadowLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                app:shadowColor="#faff0000"
+                app:shadowDx="0dp"
+                app:shadowDy="0dp"
+                app:shadowRadius="5dp"
+                app:shadowSide="top|bottom">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@null"
+                        android:src="@mipmap/ic_launcher"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="ShadowLayout of LinearLayout's outer whit top|bottom sides shadow"
                         android:textSize="15sp"/>
                 </LinearLayout>
             </com.lijiankun24.library.ShadowLayout>
 
+            <com.lijiankun24.library.ShadowLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                app:shadowColor="#66000000"
+                app:shadowDx="0dp"
+                app:shadowDy="0dp"
+                app:shadowRadius="5dp"
+                app:shadowSide="left|bottom|right">
+
+                <RelativeLayout
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:contentDescription="@null"
+                        android:src="@mipmap/ic_launcher"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/iv"
+                        android:gravity="center"
+                        android:text="ShadowLayout of RelativeLayout's outer whit left|bottom|right sides shadow"
+                        android:textSize="15sp"/>
+                </RelativeLayout>
+            </com.lijiankun24.library.ShadowLayout>
+
+            <com.lijiankun24.library.ShadowLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="48dp"
+                android:layout_marginTop="30dp"
+                app:shadowColor="#fe2196F3"
+                app:shadowDx="0dp"
+                app:shadowDy="0dp"
+                app:shadowRadius="8dp"
+                app:shadowSide="all">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:gravity="center"
+                    android:paddingEnd="48dp"
+                    android:paddingLeft="48dp"
+                    android:paddingRight="48dp"
+                    android:paddingStart="48dp"
+                    android:text="This is a demo for you to show how to use ShadowLayout and I hope you would like it.  \n---- lijiankun24"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="14sp"/>
+            </com.lijiankun24.library.ShadowLayout>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
