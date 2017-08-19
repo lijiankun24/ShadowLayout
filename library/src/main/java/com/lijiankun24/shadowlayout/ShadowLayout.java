@@ -34,14 +34,29 @@ public class ShadowLayout extends RelativeLayout {
 
     private RectF mRectF = new RectF();
 
+    /**
+     * 阴影的颜色
+     */
     private int mShadowColor = Color.TRANSPARENT;
 
+    /**
+     * 阴影的大小范围
+     */
     private float mShadowRadius = 0;
 
+    /**
+     * 阴影 x 轴的偏移量
+     */
     private float mShadowDx = 0;
 
+    /**
+     * 阴影 y 轴的偏移量
+     */
     private float mShadowDy = 0;
 
+    /**
+     * 阴影显示的边界
+     */
     private int mShadowSide = ALL;
 
     public ShadowLayout(Context context) {
@@ -57,6 +72,9 @@ public class ShadowLayout extends RelativeLayout {
         init(attrs);
     }
 
+    /**
+     * 获取绘制阴影的位置，并为 ShadowLayout 设置 Padding 以为显示阴影留出空间
+     */
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
@@ -102,12 +120,20 @@ public class ShadowLayout extends RelativeLayout {
         this.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
     }
 
+    /**
+     * 真正绘制阴影的方法
+     */
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         canvas.drawRect(mRectF, mPaint);
     }
 
+    /**
+     * 读取设置的阴影的属性
+     *
+     * @param attrs 从其中获取设置的值
+     */
     private void init(AttributeSet attrs) {
         setLayerType(View.LAYER_TYPE_SOFTWARE, null);  // 关闭硬件加速
         this.setWillNotDraw(false);                    // 调用此方法后，才会执行 onDraw(Canvas) 方法
@@ -127,6 +153,12 @@ public class ShadowLayout extends RelativeLayout {
         mPaint.setShadowLayer(mShadowRadius, mShadowDx, mShadowDy, mShadowColor);
     }
 
+    /**
+     * dip2px dp 值转 px 值
+     *
+     * @param dpValue dp 值
+     * @return px 值
+     */
     private float dip2px(float dpValue) {
         DisplayMetrics dm = getContext().getResources().getDisplayMetrics();
         float scale = dm.density;
