@@ -6,7 +6,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
-import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.View;
@@ -141,7 +140,7 @@ public class ShadowLayout extends RelativeLayout {
         TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.ShadowLayout);
         if (typedArray != null) {
             mShadowColor = typedArray.getColor(R.styleable.ShadowLayout_shadowColor,
-                    ContextCompat.getColor(getContext(), android.R.color.black));
+                    getContext().getResources().getColor(android.R.color.black));
             mShadowRadius = typedArray.getDimension(R.styleable.ShadowLayout_shadowRadius, dip2px(0));
             mShadowDx = typedArray.getDimension(R.styleable.ShadowLayout_shadowDx, dip2px(0));
             mShadowDy = typedArray.getDimension(R.styleable.ShadowLayout_shadowDy, dip2px(0));
