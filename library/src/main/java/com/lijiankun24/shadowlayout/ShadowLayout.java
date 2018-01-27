@@ -8,6 +8,7 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 
@@ -116,6 +117,10 @@ public class ShadowLayout extends RelativeLayout {
         mRectF.top = rectTop;
         mRectF.right = rectRight;
         mRectF.bottom = rectBottom;
+        Log.i("lijk", "onLayout rectLeft " + rectLeft);
+        Log.i("lijk", "onLayout rectTop " + rectTop);
+        Log.i("lijk", "onLayout rectRight " + rectRight);
+        Log.i("lijk", "onLayout rectBottom " + rectBottom);
         this.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
     }
 
@@ -125,7 +130,35 @@ public class ShadowLayout extends RelativeLayout {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        Log.i("lijk", "onDraw  ");
+        setUpShadowPaint();
         canvas.drawRect(mRectF, mPaint);
+    }
+
+    public void setShadowColor(int shadowColor) {
+        mShadowColor = shadowColor;
+        requestLayout();
+        postInvalidate();
+    }
+
+    public void setShadowRadius(float shadowRadius) {
+        mShadowRadius = shadowRadius;
+        invalidate();
+    }
+
+    public void setShadowDx(float shadowDx) {
+        mShadowDx = shadowDx;
+        invalidate();
+    }
+
+    public void setShadowDy(float shadowDy) {
+        mShadowDy = shadowDy;
+        invalidate();
+    }
+
+    public void setShadowSide(int shadowSide) {
+        mShadowSide = shadowSide;
+        invalidate();
     }
 
     /**
@@ -147,6 +180,11 @@ public class ShadowLayout extends RelativeLayout {
             mShadowSide = typedArray.getInt(R.styleable.ShadowLayout_shadowSide, ALL);
             typedArray.recycle();
         }
+        setUpShadowPaint();
+    }
+
+    private void setUpShadowPaint() {
+        mPaint.reset();
         mPaint.setAntiAlias(true);
         mPaint.setColor(Color.TRANSPARENT);
         mPaint.setShadowLayer(mShadowRadius, mShadowDx, mShadowDy, mShadowColor);

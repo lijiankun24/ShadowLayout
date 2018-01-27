@@ -28,7 +28,19 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <Button
+                android:id="@+id/btn_ChangeShadow"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@android:color/holo_blue_light"
+                android:gravity="center"
+                android:text="ChangeShadow"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"/>
+
             <com.lijiankun24.shadowlayout.ShadowLayout
+                android:id="@+id/shadowLayout1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
