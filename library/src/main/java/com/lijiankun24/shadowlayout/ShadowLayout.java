@@ -8,7 +8,6 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 
@@ -72,18 +71,14 @@ public class ShadowLayout extends RelativeLayout {
         init(attrs);
     }
 
-    /**
-     * 获取绘制阴影的位置，并为 ShadowLayout 设置 Padding 以为显示阴影留出空间
-     */
     @Override
-    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
-        super.onLayout(changed, left, top, right, bottom);
-
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         float effect = mShadowRadius + dip2px(5);
         float rectLeft = 0;
         float rectTop = 0;
-        float rectRight = this.getWidth();
-        float rectBottom = this.getHeight();
+        float rectRight = this.getMeasuredWidth();
+        float rectBottom = this.getMeasuredHeight();
         int paddingLeft = 0;
         int paddingTop = 0;
         int paddingRight = 0;
@@ -98,11 +93,11 @@ public class ShadowLayout extends RelativeLayout {
             paddingTop = (int) effect;
         }
         if (((mShadowSide & RIGHT) == RIGHT)) {
-            rectRight = this.getWidth() - effect;
+            rectRight = this.getMeasuredWidth() - effect;
             paddingRight = (int) effect;
         }
         if (((mShadowSide & BOTTOM) == BOTTOM)) {
-            rectBottom = this.getHeight() - effect;
+            rectBottom = this.getMeasuredHeight() - effect;
             paddingBottom = (int) effect;
         }
         if (mShadowDy != 0.0f) {
@@ -117,10 +112,6 @@ public class ShadowLayout extends RelativeLayout {
         mRectF.top = rectTop;
         mRectF.right = rectRight;
         mRectF.bottom = rectBottom;
-        Log.i("lijk", "onLayout rectLeft " + rectLeft);
-        Log.i("lijk", "onLayout rectTop " + rectTop);
-        Log.i("lijk", "onLayout rectRight " + rectRight);
-        Log.i("lijk", "onLayout rectBottom " + rectBottom);
         this.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
     }
 
@@ -130,7 +121,6 @@ public class ShadowLayout extends RelativeLayout {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        Log.i("lijk", "onDraw  ");
         setUpShadowPaint();
         canvas.drawRect(mRectF, mPaint);
     }
