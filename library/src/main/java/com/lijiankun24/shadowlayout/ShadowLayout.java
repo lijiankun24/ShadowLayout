@@ -29,6 +29,10 @@ public class ShadowLayout extends RelativeLayout {
 
     public static final int BOTTOM = 0x1000;
 
+    public static final int SHAPE_RECTANGLE = 0x0001;
+
+    public static final int SHAPE_OVAL = 0x0010;
+
     private Paint mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
     private RectF mRectF = new RectF();
@@ -58,6 +62,11 @@ public class ShadowLayout extends RelativeLayout {
      */
     private int mShadowSide = ALL;
 
+    /**
+     * 阴影的形状，圆形/矩形
+     */
+    private int mShadowShape = SHAPE_RECTANGLE;
+
     public ShadowLayout(Context context) {
         this(context, null);
     }
@@ -83,20 +92,20 @@ public class ShadowLayout extends RelativeLayout {
         int paddingTop = 0;
         int paddingRight = 0;
         int paddingBottom = 0;
-
-        if (((mShadowSide & LEFT) == LEFT)) {
+        this.getWidth();
+        if ((mShadowSide & LEFT) == LEFT) {
             rectLeft = effect;
             paddingLeft = (int) effect;
         }
-        if (((mShadowSide & TOP) == TOP)) {
+        if ((mShadowSide & TOP) == TOP) {
             rectTop = effect;
             paddingTop = (int) effect;
         }
-        if (((mShadowSide & RIGHT) == RIGHT)) {
+        if ((mShadowSide & RIGHT) == RIGHT) {
             rectRight = this.getMeasuredWidth() - effect;
             paddingRight = (int) effect;
         }
-        if (((mShadowSide & BOTTOM) == BOTTOM)) {
+        if ((mShadowSide & BOTTOM) == BOTTOM) {
             rectBottom = this.getMeasuredHeight() - effect;
             paddingBottom = (int) effect;
         }
@@ -122,7 +131,11 @@ public class ShadowLayout extends RelativeLayout {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         setUpShadowPaint();
-        canvas.drawRect(mRectF, mPaint);
+        if (mShadowShape == SHAPE_RECTANGLE) {
+            canvas.drawRect(mRectF, mPaint);
+        } else if (mShadowShape == SHAPE_OVAL) {
+            canvas.drawCircle(mRectF.centerX(), mRectF.centerY(), Math.min(mRectF.width(), mRectF.height()) / 2, mPaint);
+        }
     }
 
     public void setShadowColor(int shadowColor) {
@@ -168,6 +181,7 @@ public class ShadowLayout extends RelativeLayout {
             mShadowDx = typedArray.getDimension(R.styleable.ShadowLayout_shadowDx, dip2px(0));
             mShadowDy = typedArray.getDimension(R.styleable.ShadowLayout_shadowDy, dip2px(0));
             mShadowSide = typedArray.getInt(R.styleable.ShadowLayout_shadowSide, ALL);
+            mShadowShape = typedArray.getInt(R.styleable.ShadowLayout_shadowShape, SHAPE_RECTANGLE);
             typedArray.recycle();
         }
         setUpShadowPaint();

@@ -7,6 +7,10 @@
         <attr name="shadowRadius" format="dimension"/>
         <attr name="shadowDx" format="dimension"/>
         <attr name="shadowDy" format="dimension"/>
+        <attr name="shadowShape">
+            <flag name="rectangle" value="0x0001"/>
+            <flag name="oval" value="0x0010"/>
+        </attr>
         <attr name="shadowSide">
             <flag name="all" value="0x1111"/>
             <flag name="left" value="0x0001"/>

@@ -28,6 +28,33 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <com.lijiankun24.shadowlayout.ShadowLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="48dp"
+                android:layout_marginTop="30dp"
+                app:shadowColor="#fe3311F3"
+                app:shadowDx="0dp"
+                app:shadowDy="0dp"
+                app:shadowRadius="8dp"
+                app:shadowShape="oval"
+                app:shadowSide="all">
+
+                <TextView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/circle_bg"
+                    android:gravity="center"
+                    android:paddingEnd="48dp"
+                    android:paddingLeft="48dp"
+                    android:paddingRight="48dp"
+                    android:paddingStart="48dp"
+                    android:text="Test"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="14sp"/>
+            </com.lijiankun24.shadowlayout.ShadowLayout>
+
             <Button
                 android:id="@+id/btn_ChangeShadow"
                 android:layout_width="match_parent"
@@ -155,32 +182,6 @@
                         android:text="ShadowLayout of RelativeLayout's outer whit left|bottom|right sides shadow"
                         android:textSize="15sp"/>
                 </RelativeLayout>
-            </com.lijiankun24.shadowlayout.ShadowLayout>
-
-            <com.lijiankun24.shadowlayout.ShadowLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="48dp"
-                android:layout_marginTop="30dp"
-                app:shadowColor="#fe2196F3"
-                app:shadowDx="0dp"
-                app:shadowDy="0dp"
-                app:shadowRadius="8dp"
-                app:shadowSide="all">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/white"
-                    android:gravity="center"
-                    android:paddingEnd="48dp"
-                    android:paddingLeft="48dp"
-                    android:paddingRight="48dp"
-                    android:paddingStart="48dp"
-                    android:text="This is a demo for you to show how to use ShadowLayout and I hope you would like it.  \n---- lijiankun24"
-                    android:textColor="@android:color/darker_gray"
-                    android:textSize="14sp"/>
             </com.lijiankun24.shadowlayout.ShadowLayout>
         </LinearLayout>
     </ScrollView>
