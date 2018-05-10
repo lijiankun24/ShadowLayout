@@ -8,27 +8,28 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.lijiankun24.shadowlayout.ShadowLayout;
 import com.lijiankun24.shadowlayoutexample.about.AboutActivity;
 
-public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuItemClickListener {
-
-    private ShadowLayout mShadowLayout = null;
+public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuItemClickListener,
+        View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.tool_bar);
-        setSupportActionBar(toolbar);
-        toolbar.setOnMenuItemClickListener(this);
-        mShadowLayout = findViewById(R.id.shadowLayout1);
-        findViewById(R.id.btn_ChangeShadow).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mShadowLayout.setShadowColor(getResources().getColor(android.R.color.holo_orange_light));
-            }
-        });
+        initView();
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.tv_to_show:
+                startActivity(new Intent(MainActivity.this, ShowActivity.class));
+                break;
+            case R.id.tv_to_dynamic_change:
+                startActivity(new Intent(MainActivity.this, DynamicChangeActivity.class));
+                break;
+        }
     }
 
     @Override
@@ -45,5 +46,13 @@ public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuIte
                 break;
         }
         return true;
+    }
+
+    private void initView() {
+        Toolbar toolbar = findViewById(R.id.tool_bar);
+        setSupportActionBar(toolbar);
+        toolbar.setOnMenuItemClickListener(this);
+        findViewById(R.id.tv_to_show).setOnClickListener(this);
+        findViewById(R.id.tv_to_dynamic_change).setOnClickListener(this);
     }
 }

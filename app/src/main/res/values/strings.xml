@@ -1,6 +1,18 @@
 <resources>
     <string name="app_name">ShadowLayout</string>
 
+    <!-- MainActivity begin -->
+    <string name="main_to_show">Click to ShowActivity.</string>
+    <!-- MainActivity end -->
+
+    <!-- DynamicChangeActivity begin -->
+    <string name="main_to_dynamic_change">Click to DynamicChangeActivity.</string>
+    <!-- DynamicChangeActivity end -->
+
+    <!-- ShowActivity begin -->
+    <string name="show_title">Show Shadow</string>
+    <!-- ShowActivity end -->
+
     <!-- AboutActivity begin -->
     <string name="about">about</string>
     <string name="about_activity_title">About</string>
