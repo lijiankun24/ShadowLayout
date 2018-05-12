@@ -38,8 +38,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="48dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginTop="12dp"
                 app:shadowColor="#fe3311F3"
                 app:shadowDx="0dp"
                 app:shadowDy="0dp"
@@ -48,16 +48,12 @@
                 app:shadowSide="all">
 
                 <TextView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:layout_width="62dp"
+                    android:layout_height="62dp"
                     android:background="@drawable/circle_bg"
                     android:gravity="center"
-                    android:paddingEnd="48dp"
-                    android:paddingLeft="48dp"
-                    android:paddingRight="48dp"
-                    android:paddingStart="48dp"
-                    android:text="Test"
-                    android:textColor="@android:color/darker_gray"
+                    android:text="oval shadow"
+                    android:textColor="@android:color/white"
                     android:textSize="14sp"/>
             </com.lijiankun24.shadowlayout.ShadowLayout>
 
@@ -66,7 +62,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="25dp"
                 app:shadowColor="#66000000"
                 app:shadowDx="0dp"
                 app:shadowDy="3dp"
@@ -108,7 +104,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:text="ShadowLayout of FrameLayout's outer whit left|bottom sides shadow"
+                        android:text="FrameLayout has left|bottom shadow"
                         android:textSize="15sp"/>
                 </FrameLayout>
             </com.lijiankun24.shadowlayout.ShadowLayout>
@@ -139,7 +135,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:text="ShadowLayout of LinearLayout's outer whit top|bottom sides shadow"
+                        android:text="LinearLayout has top|bottom shadow"
                         android:textSize="15sp"/>
                 </LinearLayout>
             </com.lijiankun24.shadowlayout.ShadowLayout>
@@ -174,7 +170,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/iv"
                         android:gravity="center"
-                        android:text="ShadowLayout of RelativeLayout's outer whit left|bottom|right sides shadow"
+                        android:text="RelativeLayout has left|bottom|right shadow"
                         android:textSize="15sp"/>
                 </RelativeLayout>
             </com.lijiankun24.shadowlayout.ShadowLayout>

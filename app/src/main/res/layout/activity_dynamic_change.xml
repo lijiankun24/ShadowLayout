@@ -34,13 +34,21 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/tv_change_oval"
+                style="@style/TextViewStyle"
+                android:text="@string/dynamic_change_oval_color"/>
+
+            <View style="@style/LineStyle"/>
+
             <com.lijiankun24.shadowlayout.ShadowLayout
+                android:id="@+id/sl_oval"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="48dp"
-                android:layout_marginTop="30dp"
-                app:shadowColor="#fe3311F3"
+                android:layout_marginBottom="12dp"
+                android:layout_marginTop="12dp"
+                app:shadowColor="#FE3311F3"
                 app:shadowDx="0dp"
                 app:shadowDy="0dp"
                 app:shadowRadius="8dp"
@@ -56,127 +64,43 @@
                     android:paddingLeft="48dp"
                     android:paddingRight="48dp"
                     android:paddingStart="48dp"
-                    android:text="Test"
-                    android:textColor="@android:color/darker_gray"
+                    android:text="Oval shadow"
+                    android:textColor="@android:color/white"
                     android:textSize="14sp"/>
             </com.lijiankun24.shadowlayout.ShadowLayout>
 
+            <View style="@style/LineStyle"/>
+
+            <TextView
+                android:id="@+id/tv_change_rectangle"
+                style="@style/TextViewStyle"
+                android:text="@string/dynamic_change_rectangle_color"/>
+
+            <View style="@style/LineStyle"/>
+
             <com.lijiankun24.shadowlayout.ShadowLayout
-                android:id="@+id/shadowLayout1"
+                android:id="@+id/sl_rectangle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="30dp"
-                app:shadowColor="#66000000"
-                app:shadowDx="0dp"
-                app:shadowDy="3dp"
-                app:shadowRadius="10dp"
-                app:shadowSide="all">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/white"
-                    android:contentDescription="@null"
-                    android:src="@mipmap/ic_launcher"/>
-            </com.lijiankun24.shadowlayout.ShadowLayout>
-
-            <com.lijiankun24.shadowlayout.ShadowLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                app:shadowColor="#770000FF"
+                android:layout_marginBottom="12dp"
+                android:layout_marginTop="12dp"
+                app:shadowColor="#EE000000"
                 app:shadowDx="0dp"
                 app:shadowDy="0dp"
-                app:shadowRadius="5dp"
-                app:shadowSide="left|bottom">
+                app:shadowRadius="8dp"
+                app:shadowShape="rectangle"
+                app:shadowSide="left|right|bottom">
 
-                <FrameLayout
-                    android:id="@+id/activity_main_shadow_view_a"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/white"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:contentDescription="@null"
-                        android:src="@mipmap/ic_launcher"/>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:text="ShadowLayout of FrameLayout's outer whit left|bottom sides shadow"
-                        android:textSize="15sp"/>
-                </FrameLayout>
-            </com.lijiankun24.shadowlayout.ShadowLayout>
-
-            <com.lijiankun24.shadowlayout.ShadowLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                app:shadowColor="#faff0000"
-                app:shadowDx="0dp"
-                app:shadowDy="0dp"
-                app:shadowRadius="5dp"
-                app:shadowSide="top|bottom">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/white"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:contentDescription="@null"
-                        android:src="@mipmap/ic_launcher"/>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:text="ShadowLayout of LinearLayout's outer whit top|bottom sides shadow"
-                        android:textSize="15sp"/>
-                </LinearLayout>
-            </com.lijiankun24.shadowlayout.ShadowLayout>
-
-            <com.lijiankun24.shadowlayout.ShadowLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="30dp"
-                app:shadowColor="#66000000"
-                app:shadowDx="0dp"
-                app:shadowDy="0dp"
-                app:shadowRadius="5dp"
-                app:shadowSide="left|bottom|right">
-
-                <RelativeLayout
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/white"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/iv"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentTop="true"
-                        android:contentDescription="@null"
-                        android:src="@mipmap/ic_launcher"/>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/iv"
-                        android:gravity="center"
-                        android:text="ShadowLayout of RelativeLayout's outer whit left|bottom|right sides shadow"
-                        android:textSize="15sp"/>
-                </RelativeLayout>
+                <TextView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@android:color/holo_blue_light"
+                    android:gravity="center"
+                    android:padding="48dp"
+                    android:text="Rectangle shadow"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"/>
             </com.lijiankun24.shadowlayout.ShadowLayout>
         </LinearLayout>
     </ScrollView>

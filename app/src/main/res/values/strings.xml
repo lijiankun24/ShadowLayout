@@ -3,10 +3,13 @@
 
     <!-- MainActivity begin -->
     <string name="main_to_show">Click to ShowActivity.</string>
+    <string name="main_to_dynamic_change">Click to DynamicChangeActivity.</string>
     <!-- MainActivity end -->
 
     <!-- DynamicChangeActivity begin -->
-    <string name="main_to_dynamic_change">Click to DynamicChangeActivity.</string>
+    <string name="dynamic_activity_title">DynamicChangeActivity</string>
+    <string name="dynamic_change_oval_color">Click to change the color of oval shadow</string>
+    <string name="dynamic_change_rectangle_color">Click to change the color of rectangle shadow</string>
     <!-- DynamicChangeActivity end -->
 
     <!-- ShowActivity begin -->
