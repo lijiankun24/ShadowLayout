@@ -8,14 +8,14 @@
 
 看一张使用 `ShadowLayout` 库实现的各种阴影的效果图，如下图所示：
 <div align=center>
-    <img src="screenshot/ShowShadowLayout.png" width="408" height="761"/>
+    <img src="screenshot/ShowShadowLayout.png" width="600" height="997"/>
 </div>
 
 通过使用 `ShadowLayout` 可以控制阴影的颜色、范围、显示边界（上下左右四个边界）、x 轴和 y 轴的偏移量。
 
 还可以动态的改变阴影的颜色和范围，如下图所示：
 <div align=center>
-    <img src="screenshot/DynamicChange.gif" width="408" height="761"/>
+    <img src="screenshot/DynamicChange.gif" width="600" height="800"/>
 </div>
 
 ## ShadowLayout 的使用
@@ -90,7 +90,7 @@ slRadius.setShadowRadius(dip2px(12))
 
 效果如下图所示：
 <div align=center>
-    <img src="screenshot/DynamicChange.gif" width="408" height="761"/>
+    <img src="screenshot/DynamicChange.gif" width="600" height="800"/>
 </div>
 
 欢迎 star 和 fork，也欢迎下载[ShadowLayoutExample.apk](https://github.com/lijiankun24/ShadowLayout/blob/master/ShadowLayoutExample.apk)体验，如果有什么问题欢迎指出。我的工作邮箱：jiankunli24@gmail.com

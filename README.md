@@ -8,14 +8,14 @@
 
 The result of using `ShadowLayout` is as follows：
 <div align=center>
-    <img src="screenshot/ShowShadowLayout.png" width="408" height="761"/>
+    <img src="screenshot/ShowShadowLayout.png" width="600" height="997"/>
 </div>
 
 By using `ShadowLayout`, you can set the color、shape、radius、display boundary (all|left|right|top|bottom), the offset of the x-axis and the y-axis of shadow.
 
 You can change the color and radius of shadow dynamically, as follows:
 <div align=center>
-    <img src="screenshot/DynamicChange.gif" width="408" height="761"/>
+    <img src="screenshot/DynamicChange.gif" width="600" height="800"/>
 </div>
 
 ## How to use ShadowLayout
@@ -90,7 +90,7 @@ slRadius.setShadowRadius(dip2px(12))
 
 the result is as follows:
 <div align=center>
-    <img src="screenshot/DynamicChange.gif" width="408" height="761"/>
+    <img src="screenshot/DynamicChange.gif" width="600" height="800"/>
 </div>
 
 Welcome to star and fork, and welcome to download the [ShadowLayoutExample.apk](https://github.com/lijiankun24/ShadowLayout/blob/master/ShadowLayoutExample.apk) to experience. if any questions are welcome. My work email: jiankunli24@gmail.com
