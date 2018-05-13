@@ -10,6 +10,7 @@
     <string name="dynamic_activity_title">DynamicChangeActivity</string>
     <string name="dynamic_change_oval_color">Click to change the color of oval shadow</string>
     <string name="dynamic_change_rectangle_color">Click to change the color of rectangle shadow</string>
+    <string name="dynamic_change_shadow_radius">Click to change the radius of shadow</string>
     <!-- DynamicChangeActivity end -->
 
     <!-- ShowActivity begin -->

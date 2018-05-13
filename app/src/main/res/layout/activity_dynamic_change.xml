@@ -102,6 +102,40 @@
                     android:textColor="@android:color/white"
                     android:textSize="14sp"/>
             </com.lijiankun24.shadowlayout.ShadowLayout>
+
+            <View style="@style/LineStyle"/>
+
+            <TextView
+                android:id="@+id/tv_change_radius"
+                style="@style/TextViewStyle"
+                android:text="@string/dynamic_change_shadow_radius"/>
+
+            <View style="@style/LineStyle"/>
+
+            <com.lijiankun24.shadowlayout.ShadowLayout
+                android:id="@+id/sl_radius"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="12dp"
+                android:layout_marginTop="12dp"
+                app:shadowColor="#EE000000"
+                app:shadowDx="0dp"
+                app:shadowDy="0dp"
+                app:shadowRadius="8dp"
+                app:shadowShape="rectangle"
+                app:shadowSide="all">
+
+                <TextView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@android:color/holo_blue_light"
+                    android:gravity="center"
+                    android:padding="48dp"
+                    android:text="Radius shadow"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"/>
+            </com.lijiankun24.shadowlayout.ShadowLayout>
         </LinearLayout>
     </ScrollView>
 </android.support.constraint.ConstraintLayout>

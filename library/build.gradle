@@ -7,7 +7,7 @@ android {
 
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 22
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
 
@@ -30,7 +30,7 @@ publish {
     userOrg = 'lijiankun'//bintray.com用户名
     groupId = 'com.lijiankun24'//jcenter上的路径
     artifactId = 'shadowlayout'//项目名称
-    publishVersion = '1.0.0'//版本号
+    publishVersion = '1.1.0'//版本号
     desc = 'This is a libray for android developer to add shadow to view'
     website = 'http://lijiankun24.com'
 }

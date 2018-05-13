@@ -146,22 +146,8 @@ public class ShadowLayout extends RelativeLayout {
 
     public void setShadowRadius(float shadowRadius) {
         mShadowRadius = shadowRadius;
-        invalidate();
-    }
-
-    public void setShadowDx(float shadowDx) {
-        mShadowDx = shadowDx;
-        invalidate();
-    }
-
-    public void setShadowDy(float shadowDy) {
-        mShadowDy = shadowDy;
-        invalidate();
-    }
-
-    public void setShadowSide(int shadowSide) {
-        mShadowSide = shadowSide;
-        invalidate();
+        requestLayout();
+        postInvalidate();
     }
 
     /**
