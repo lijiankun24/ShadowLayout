@@ -122,6 +122,7 @@ public class ShadowLayout extends RelativeLayout {
         mRectF.right = rectRight;
         mRectF.bottom = rectBottom;
         this.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
     /**
