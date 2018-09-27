@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -18,7 +17,7 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:title="@string/show_title"
-        app:titleTextColor="@android:color/white"/>
+        app:titleTextColor="@android:color/white" />
 
     <ScrollView
         android:layout_width="0dp"
@@ -34,48 +33,37 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.lijiankun24.shadowlayout.ShadowLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="12dp"
-                android:layout_marginTop="12dp"
-                app:shadowColor="#fe3311F3"
-                app:shadowDx="0dp"
-                app:shadowDy="0dp"
-                app:shadowRadius="8dp"
-                app:shadowShape="oval"
-                app:shadowSide="all">
+            <!--<com.lijiankun24.shadowlayout.v2.ShadowLayout-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center_horizontal"-->
+                <!--android:layout_marginBottom="12dp"-->
+                <!--android:layout_marginTop="12dp">-->
 
-                <TextView
-                    android:layout_width="62dp"
-                    android:layout_height="62dp"
-                    android:background="@drawable/circle_bg"
-                    android:gravity="center"
-                    android:text="oval shadow"
-                    android:textColor="@android:color/white"
-                    android:textSize="14sp"/>
-            </com.lijiankun24.shadowlayout.ShadowLayout>
+                <!--<TextView-->
+                    <!--android:layout_width="62dp"-->
+                    <!--android:layout_height="62dp"-->
+                    <!--android:background="@drawable/circle_bg"-->
+                    <!--android:gravity="center"-->
+                    <!--android:text="oval shadow"-->
+                    <!--android:textColor="@android:color/white"-->
+                    <!--android:textSize="14sp" />-->
+            <!--</com.lijiankun24.shadowlayout.v2.ShadowLayout>-->
 
-            <com.lijiankun24.shadowlayout.ShadowLayout
+            <com.lijiankun24.shadowlayout.v2.ShadowLayout
                 android:id="@+id/shadowLayout1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="25dp"
-                app:shadowColor="#66000000"
-                app:shadowDx="0dp"
-                app:shadowDy="3dp"
-                app:shadowRadius="10dp"
-                app:shadowSide="all">
+                android:layout_marginTop="25dp">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@android:color/white"
                     android:contentDescription="@null"
-                    android:src="@mipmap/ic_launcher"/>
-            </com.lijiankun24.shadowlayout.ShadowLayout>
+                    android:src="@mipmap/ic_launcher" />
+            </com.lijiankun24.shadowlayout.v2.ShadowLayout>
 
             <com.lijiankun24.shadowlayout.ShadowLayout
                 android:layout_width="wrap_content"
@@ -98,14 +86,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:contentDescription="@null"
-                        android:src="@mipmap/ic_launcher"/>
+                        android:src="@mipmap/ic_launcher" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="FrameLayout has left|bottom shadow"
-                        android:textSize="15sp"/>
+                        android:textSize="15sp" />
                 </FrameLayout>
             </com.lijiankun24.shadowlayout.ShadowLayout>
 
@@ -129,14 +117,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:contentDescription="@null"
-                        android:src="@mipmap/ic_launcher"/>
+                        android:src="@mipmap/ic_launcher" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="LinearLayout has top|bottom shadow"
-                        android:textSize="15sp"/>
+                        android:textSize="15sp" />
                 </LinearLayout>
             </com.lijiankun24.shadowlayout.ShadowLayout>
 
@@ -163,7 +151,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
                         android:contentDescription="@null"
-                        android:src="@mipmap/ic_launcher"/>
+                        android:src="@mipmap/ic_launcher" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -171,7 +159,7 @@
                         android:layout_below="@+id/iv"
                         android:gravity="center"
                         android:text="RelativeLayout has left|bottom|right shadow"
-                        android:textSize="15sp"/>
+                        android:textSize="15sp" />
                 </RelativeLayout>
             </com.lijiankun24.shadowlayout.ShadowLayout>
         </LinearLayout>

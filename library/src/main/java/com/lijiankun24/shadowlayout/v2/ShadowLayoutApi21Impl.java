@@ -14,6 +14,8 @@ public class ShadowLayoutApi21Impl implements ShadowLayoutImpl {
 
     @Override
     public void initialize(ShadowLayoutDelegate shadowLayout, Context context, ColorStateList backgroundColor, float radius, float elevation, float maxElevation) {
+        final RoundRectDrawable background = new RoundRectDrawable(backgroundColor, radius);
+        shadowLayout.setShadowBackground(background);
     }
 
     @Override

@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.ColorFilter;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
+import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.Rect;
 import android.graphics.RectF;
@@ -28,9 +29,12 @@ public class RoundRectDrawable extends Drawable {
 
     RoundRectDrawable(ColorStateList backgroundColor, float radius) {
         mRadius = radius;
+
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.DITHER_FLAG);
+        mPaint.setColorFilter(new PorterDuffColorFilter(Color.RED, PorterDuff.Mode.ADD));
         setBackground(backgroundColor);
         mBoundsF = new RectF();
+        mBoundsF.set(10, 10, 10, 10);
         mBoundsI = new Rect();
     }
 
