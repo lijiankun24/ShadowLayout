@@ -25,7 +25,11 @@ public class ShadowLayout extends FrameLayout {
 
     private static final int[] COLOR_BACKGROUND_ATTR = {android.R.attr.colorBackground};
 
-    private static final ShadowLayoutImpl IMPL = new ShadowLayoutApi21Impl();
+    private static final ShadowLayoutImpl IMPL = new ShadowLayoutBaseImpl();
+
+    static {
+        IMPL.initStatic();
+    }
 
     final Rect mContentPadding = new Rect();
 
