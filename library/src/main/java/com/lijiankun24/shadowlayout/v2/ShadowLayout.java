@@ -73,6 +73,8 @@ public class ShadowLayout extends FrameLayout {
         float radius = 10;
         float elevation = 10;
         float maxElevation = 10;
+        setLayerType(View.LAYER_TYPE_SOFTWARE, null);  // 关闭硬件加速
+        this.setWillNotDraw(false);                    // 调用此方法后，才会执行 onDraw(Canvas) 方法
         IMPL.initialize(mShadowLayoutDelegate, context, backgroundColor, radius, elevation, maxElevation);
     }
 

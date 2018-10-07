@@ -2,8 +2,7 @@ package com.lijiankun24.shadowlayout.v2;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
-import android.graphics.Canvas;
-import android.graphics.Paint;
+import android.graphics.Color;
 import android.graphics.RectF;
 import android.support.annotation.Nullable;
 
@@ -19,61 +18,19 @@ public class ShadowLayoutBaseImpl implements ShadowLayoutImpl {
 
     @Override
     public void initStatic() {
-        ShadowDrawable.sRoundRectHelper = new ShadowHelper() {
-            @Override
-            public void drawRoundRect(Canvas canvas, RectF bounds, float cornerRadius, Paint paint) {
-                final float twoRadius = cornerRadius * 2;
-                final float innerWidth = bounds.width() - twoRadius - 1;
-                final float innerHeight = bounds.height() - twoRadius - 1;
-                if (cornerRadius >= 1f) {
-                    float roundCornerRadius = cornerRadius + .5f;
-                    mCornerRect.set(-roundCornerRadius, -roundCornerRadius, roundCornerRadius, roundCornerRadius);
-                    int saved = canvas.save();
-                    // Left & Top
-                    canvas.translate(bounds.left + roundCornerRadius, bounds.top + roundCornerRadius);
-                    canvas.drawArc(mCornerRect, 180, 90, true, paint);
-                    // Right & Top
-                    canvas.translate(innerWidth, 0);
-                    canvas.rotate(90);
-                    canvas.drawArc(mCornerRect, 180, 90, true, paint);
-                    // Right & Bottom
-                    canvas.translate(0, innerHeight);
-                    canvas.rotate(90);
-                    canvas.drawArc(mCornerRect, 180, 90, true, paint);
-                    // Left & Bottom
-                    canvas.translate(innerWidth, 0);
-                    canvas.rotate(90);
-                    canvas.drawArc(mCornerRect, 180, 90, true, paint);
-
-                    canvas.restoreToCount(saved);
-
-                    canvas.drawRect(bounds.left + roundCornerRadius - 1f, bounds.top,
-                            bounds.right - roundCornerRadius + 1f,
-                            bounds.top + roundCornerRadius, paint);
-
-                    canvas.drawRect(bounds.left + roundCornerRadius - 1f,
-                            bounds.bottom - roundCornerRadius,
-                            bounds.right - roundCornerRadius + 1f, bounds.bottom, paint);
-                }
-                // center
-                canvas.drawRect(bounds.left, bounds.top + cornerRadius,
-                        bounds.right, bounds.bottom - cornerRadius, paint);
-            }
-        };
     }
 
     @Override
     public void initialize(ShadowLayoutDelegate shadowLayout, Context context, ColorStateList backgroundColor,
                            final float radius, float elevation, float maxElevation) {
-        ShadowDrawable background = createBackground(context, backgroundColor, radius, elevation, maxElevation);
-        background.setAddPaddingForCorners(shadowLayout.getPreventCornerOverlap());
+        ShadowDrawable background = createBackground();
         shadowLayout.setShadowBackground(background);
         updatePadding(shadowLayout);
     }
 
-    private ShadowDrawable createBackground(Context context, ColorStateList backgroundColor, float radius,
-                                            float elevation, float maxElevation) {
-        return new ShadowDrawable(context.getResources(), backgroundColor, radius, elevation, maxElevation);
+    private ShadowDrawable createBackground() {
+        return new ShadowDrawable(Color.RED, 10, 0, 5,
+                ShadowDrawable.ALL, ShadowDrawable.SHAPE_RECTANGLE);
     }
 
     @Override
