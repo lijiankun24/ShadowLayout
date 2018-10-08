@@ -1,19 +1,16 @@
 package com.lijiankun24.shadowlayout.v2;
 
 import android.content.Context;
-import android.content.res.ColorStateList;
-import android.content.res.TypedArray;
+import android.content.res.Resources;
+import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
-
-import com.lijiankun24.shadowlayout.R;
 
 /**
  * ShadowLayout
@@ -23,31 +20,60 @@ import com.lijiankun24.shadowlayout.R;
  */
 public class ShadowLayout extends FrameLayout {
 
-    private static final int[] COLOR_BACKGROUND_ATTR = {android.R.attr.colorBackground};
-
-    private static final ShadowLayoutImpl IMPL = new ShadowLayoutBaseImpl();
-
-    static {
-        IMPL.initStatic();
-    }
-
-    final Rect mContentPadding = new Rect();
-
-    final Rect mShadowBounds = new Rect();
+    private ShadowDrawable drawable;
 
     public ShadowLayout(@NonNull Context context) {
-        super(context);
-        initialize(context, null, 0);
+        this(context, null, 0);
     }
 
     public ShadowLayout(@NonNull Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
-        initialize(context, attrs, 0);
+        this(context, attrs, 0);
     }
 
     public ShadowLayout(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        initialize(context, attrs, defStyleAttr);
+        initialize();
+    }
+
+    private void initialize() {
+        drawable = new ShadowDrawable.Builder()
+                .setBgColor(Color.parseColor("#3D5AFE"))
+                .setShapeRadius(dpToPx(8))
+                .setShadowColor(Color.parseColor("#66ff0000"))
+                .setShadowRadius(dpToPx(10))
+                .setOffsetX(0)
+                .setOffsetY(0)
+                .builder();
+        this.setLayerType(View.LAYER_TYPE_SOFTWARE, null);      // 关闭硬件加速
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        Log.i("ShadowLayout", "ShadowLayout onMeasure");
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        final int widthMode = MeasureSpec.getMode(widthMeasureSpec);
+        switch (widthMode) {
+            case MeasureSpec.EXACTLY:
+            case MeasureSpec.AT_MOST:
+                widthMeasureSpec = MeasureSpec.makeMeasureSpec(MeasureSpec.getSize(widthMeasureSpec) + dpToPx(10), widthMode);
+                break;
+        }
+
+        final int heightMode = MeasureSpec.getMode(heightMeasureSpec);
+        switch (heightMode) {
+            case MeasureSpec.EXACTLY:
+            case MeasureSpec.AT_MOST:
+                heightMeasureSpec = MeasureSpec.makeMeasureSpec(MeasureSpec.getSize(widthMeasureSpec) + dpToPx(10), heightMode);
+                break;
+        }
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+    }
+
+    @Override
+    protected void dispatchDraw(Canvas canvas) {
+        Log.i("ShadowLayout", "ShadowLayout dispatchDraw");
+        super.dispatchDraw(canvas);
+        ViewCompat.setBackground(ShadowLayout.this, drawable);
     }
 
     @Override
@@ -60,66 +86,8 @@ public class ShadowLayout extends FrameLayout {
         // NO OP
     }
 
-    private void initialize(Context context, AttributeSet attrs, int defStyleAttr) {
-        final TypedArray aa = getContext().obtainStyledAttributes(COLOR_BACKGROUND_ATTR);
-        final int themeColorBackground = aa.getColor(0, 0);
-        aa.recycle();
-
-        final float[] hsv = new float[3];
-        Color.colorToHSV(themeColorBackground, hsv);
-        ColorStateList backgroundColor = ColorStateList.valueOf(hsv[2] > 0.5f
-                ? getResources().getColor(R.color.shadowlayout_light_background)
-                : getResources().getColor(R.color.shadowlayout_dark_background));
-        float radius = 10;
-        float elevation = 10;
-        float maxElevation = 10;
-        setLayerType(View.LAYER_TYPE_SOFTWARE, null);  // 关闭硬件加速
-        this.setWillNotDraw(false);                    // 调用此方法后，才会执行 onDraw(Canvas) 方法
-        IMPL.initialize(mShadowLayoutDelegate, context, backgroundColor, radius, elevation, maxElevation);
+    private int dpToPx(int dp) {
+        return (int) (Resources.getSystem().getDisplayMetrics().density * dp + 0.5f);
     }
-
-    private final ShadowLayoutDelegate mShadowLayoutDelegate = new ShadowLayoutDelegate() {
-        private Drawable mCardBackground = null;
-
-        @Override
-        public void setShadowBackground(Drawable drawable) {
-            mCardBackground = drawable;
-            if (Build.VERSION.SDK_INT >= 16) {
-                setBackground(drawable);
-            } else {
-                setBackgroundDrawable(drawable);
-            }
-        }
-
-        @Override
-        public Drawable getShadowBackground() {
-            return mCardBackground;
-        }
-
-        @Override
-        public View getShadowLayout() {
-            return ShadowLayout.this;
-        }
-
-        @Override
-        public boolean getUseCompatPadding() {
-            return false;
-        }
-
-        @Override
-        public boolean getPreventCornerOverlap() {
-            return false;
-        }
-
-        @Override
-        public void setShadowPadding(int left, int top, int right, int bottom) {
-
-        }
-
-        @Override
-        public void setMinWidthHeightInternal(int width, int height) {
-
-        }
-    };
 }
 

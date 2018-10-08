@@ -3,17 +3,17 @@ package com.lijiankun24.shadowlayout.v2;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.ColorFilter;
+import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
-import android.graphics.Rect;
 import android.graphics.RectF;
+import android.graphics.Shader;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
-import android.view.View;
 
 /**
  * ShadowDrawable
@@ -23,115 +23,143 @@ import android.view.View;
  */
 public class ShadowDrawable extends Drawable {
 
-    public static final int ALL = 0x1111;
+    private Paint mShadowPaint;
+    private Paint mBgPaint;
+    private int mShadowRadius;
+    private int mShape;
+    private int mShapeRadius;
+    private int mOffsetX;
+    private int mOffsetY;
+    private int mBgColor[];
+    private RectF mRect;
 
-    public static final int LEFT = 0x0001;
+    public final static int SHAPE_ROUND = 1;
+    public final static int SHAPE_CIRCLE = 2;
 
-    public static final int TOP = 0x0010;
-
-    public static final int RIGHT = 0x0100;
-
-    public static final int BOTTOM = 0x1000;
-
-    public static final int SHAPE_RECTANGLE = 0x0001;
-
-    public static final int SHAPE_OVAL = 0x0010;
-
-    private Paint mPaint;
-
-    private RectF mRectF;
-
-    private boolean mDirty;
-
-    /**
-     * 阴影的颜色
-     */
-    private int mShadowColor = Color.TRANSPARENT;
-
-    /**
-     * 阴影的大小范围
-     */
-    private float mShadowRadius = 0;
-
-    /**
-     * 阴影 x 轴的偏移量
-     */
-    private float mShadowDx = 0;
-
-    /**
-     * 阴影 y 轴的偏移量
-     */
-    private float mShadowDy = 0;
-
-    /**
-     * 阴影显示的边界
-     */
-    private int mShadowSide = ALL;
-
-    /**
-     * 阴影的形状，圆形/矩形
-     */
-    private int mShadowShape = SHAPE_RECTANGLE;
-
-    ShadowDrawable(int shadowColor, float shadowRadius, float shadowDx,
-                   float shadowDy, int shadowSide, int shadowShape) {
-        this.mShadowColor = shadowColor;
+    private ShadowDrawable(int shape, int[] bgColor, int shapeRadius, int shadowColor, int shadowRadius, int offsetX, int offsetY) {
+        this.mShape = shape;
+        this.mBgColor = bgColor;
+        this.mShapeRadius = shapeRadius;
         this.mShadowRadius = shadowRadius;
-        this.mShadowDx = shadowDx;
-        this.mShadowDy = shadowDy;
-        this.mShadowSide = shadowSide;
-        this.mShadowShape = shadowShape;
+        this.mOffsetX = offsetX;
+        this.mOffsetY = offsetY;
 
-        mPaint = new Paint();
-        mPaint.setColor(Color.TRANSPARENT);
-        mPaint.setAntiAlias(true);
-        mPaint.setShadowLayer(mShadowRadius, mShadowDx, mShadowDy, mShadowColor);
-        mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_ATOP));
+        mShadowPaint = new Paint();
+        mShadowPaint.setColor(Color.TRANSPARENT);
+        mShadowPaint.setAntiAlias(true);
+        mShadowPaint.setShadowLayer(shadowRadius, offsetX, offsetY, shadowColor);
+        mShadowPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_ATOP));
+
+        mBgPaint = new Paint();
+        mBgPaint.setAntiAlias(true);
     }
 
     @Override
-    protected void onBoundsChange(Rect bounds) {
-        super.onBoundsChange(bounds);
-        Log.i("ShadowDrawable", "bounds.left " + bounds.left);
-        Log.i("ShadowDrawable", "bounds.top " + bounds.top);
-        Log.i("ShadowDrawable", "bounds.right " + bounds.right);
-        Log.i("ShadowDrawable", "bounds.bottom " + bounds.bottom);
-        mRectF = new RectF(bounds.left - mShadowRadius - mShadowDx,
-                bounds.top - mShadowRadius - mShadowDy,
-                bounds.right + mShadowRadius - mShadowDx,
-                bounds.bottom + mShadowRadius - mShadowDy);
-        Log.i("ShadowDrawable", "mRectF.left " + mRectF.left);
-        Log.i("ShadowDrawable", "mRectF.top " + mRectF.top);
-        Log.i("ShadowDrawable", "mRectF.right " + mRectF.right);
-        Log.i("ShadowDrawable", "mRectF.bottom " + mRectF.bottom);
-        mDirty = true;
+    public void setBounds(int left, int top, int right, int bottom) {
+        super.setBounds(left, top, right, bottom);
+        Log.i("ShadowLayout1", "ShadowDrawable1 setBounds ");
+        mRect = new RectF(left + mShadowRadius - mOffsetX, top + mShadowRadius - mOffsetY, right - mShadowRadius - mOffsetX,
+                bottom - mShadowRadius - mOffsetY);
     }
 
     @Override
     public void draw(@NonNull Canvas canvas) {
-        if (mDirty) {
-            Log.i("ShadowDrawable", "draw " + mShadowShape);
-            if (mShadowShape == SHAPE_RECTANGLE) {
-                canvas.drawRect(mRectF, mPaint);
-            } else if (mShadowShape == SHAPE_OVAL) {
-                canvas.drawCircle(mRectF.centerX(), mRectF.centerY(), Math.min(mRectF.width(), mRectF.height()) / 2, mPaint);
+        Log.i("ShadowLayout3", "ShadowDrawable1 draw " + canvas);
+        if (mBgColor != null) {
+            if (mBgColor.length == 1) {
+                mBgPaint.setColor(mBgColor[0]);
+            } else {
+                mBgPaint.setShader(new LinearGradient(mRect.left, mRect.height() / 2, mRect.right,
+                        mRect.height() / 2, mBgColor, null, Shader.TileMode.CLAMP));
             }
-            mDirty = false;
+        }
+
+        if (mShape == SHAPE_ROUND) {
+            canvas.drawRoundRect(mRect, mShapeRadius, mShapeRadius, mShadowPaint);
+            canvas.drawRoundRect(mRect, mShapeRadius, mShapeRadius, mBgPaint);
+        } else {
+            canvas.drawCircle(mRect.centerX(), mRect.centerY(), Math.min(mRect.width(), mRect.height()) / 2, mShadowPaint);
+            canvas.drawCircle(mRect.centerX(), mRect.centerY(), Math.min(mRect.width(), mRect.height()) / 2, mBgPaint);
         }
     }
 
     @Override
     public void setAlpha(int alpha) {
-        mPaint.setAlpha(alpha);
+        mShadowPaint.setAlpha(alpha);
     }
 
     @Override
     public void setColorFilter(@Nullable ColorFilter colorFilter) {
-        mPaint.setColorFilter(colorFilter);
+        mShadowPaint.setColorFilter(colorFilter);
     }
 
     @Override
     public int getOpacity() {
         return PixelFormat.TRANSLUCENT;
+    }
+
+    public static class Builder {
+        private int mShape;
+        private int mShapeRadius;
+        private int mShadowColor;
+        private int mShadowRadius;
+        private int mOffsetX;
+        private int mOffsetY;
+        private int[] mBgColor;
+
+        Builder() {
+            mShape = ShadowDrawable.SHAPE_ROUND;
+            mShapeRadius = 12;
+            mShadowColor = Color.parseColor("#4d000000");
+            mShadowRadius = 18;
+            mOffsetX = 0;
+            mOffsetY = 0;
+            mBgColor = new int[1];
+            mBgColor[0] = Color.TRANSPARENT;
+        }
+
+        public Builder setShape(int mShape) {
+            this.mShape = mShape;
+            return this;
+        }
+
+        public Builder setShapeRadius(int ShapeRadius) {
+            this.mShapeRadius = ShapeRadius;
+            return this;
+        }
+
+        public Builder setShadowColor(int shadowColor) {
+            this.mShadowColor = shadowColor;
+            return this;
+        }
+
+        public Builder setShadowRadius(int shadowRadius) {
+            this.mShadowRadius = shadowRadius;
+            return this;
+        }
+
+        public Builder setOffsetX(int OffsetX) {
+            this.mOffsetX = OffsetX;
+            return this;
+        }
+
+        public Builder setOffsetY(int OffsetY) {
+            this.mOffsetY = OffsetY;
+            return this;
+        }
+
+        public Builder setBgColor(int BgColor) {
+            this.mBgColor[0] = BgColor;
+            return this;
+        }
+
+        public Builder setBgColor(int[] BgColor) {
+            this.mBgColor = BgColor;
+            return this;
+        }
+
+        public ShadowDrawable builder() {
+            return new ShadowDrawable(mShape, mBgColor, mShapeRadius, mShadowColor, mShadowRadius, mOffsetX, mOffsetY);
+        }
     }
 }

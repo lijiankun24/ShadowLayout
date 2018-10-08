@@ -34,32 +34,33 @@
             android:orientation="vertical">
 
             <!--<com.lijiankun24.shadowlayout.v2.ShadowLayout-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_gravity="center_horizontal"-->
-                <!--android:layout_marginBottom="12dp"-->
-                <!--android:layout_marginTop="12dp">-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center_horizontal"-->
+            <!--android:layout_marginBottom="12dp"-->
+            <!--android:layout_marginTop="12dp">-->
 
-                <!--<TextView-->
-                    <!--android:layout_width="62dp"-->
-                    <!--android:layout_height="62dp"-->
-                    <!--android:background="@drawable/circle_bg"-->
-                    <!--android:gravity="center"-->
-                    <!--android:text="oval shadow"-->
-                    <!--android:textColor="@android:color/white"-->
-                    <!--android:textSize="14sp" />-->
+            <!--<TextView-->
+            <!--android:layout_width="62dp"-->
+            <!--android:layout_height="62dp"-->
+            <!--android:background="@drawable/circle_bg"-->
+            <!--android:gravity="center"-->
+            <!--android:text="oval shadow"-->
+            <!--android:textColor="@android:color/white"-->
+            <!--android:textSize="14sp" />-->
             <!--</com.lijiankun24.shadowlayout.v2.ShadowLayout>-->
 
             <com.lijiankun24.shadowlayout.v2.ShadowLayout
                 android:id="@+id/shadowLayout1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="25dp">
 
                 <ImageView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
+                    android:layout_gravity="center"
                     android:background="@android:color/white"
                     android:contentDescription="@null"
                     android:src="@mipmap/ic_launcher" />
