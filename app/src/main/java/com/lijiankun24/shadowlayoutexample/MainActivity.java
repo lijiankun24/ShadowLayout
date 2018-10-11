@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.lijiankun24.shadowlayoutexample.about.AboutActivity;
+import com.lijiankun24.shadowlayoutexample.list.ListActivity;
 
 public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuItemClickListener,
         View.OnClickListener {
@@ -28,6 +29,9 @@ public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuIte
                 break;
             case R.id.tv_to_dynamic_change:
                 startActivity(new Intent(MainActivity.this, DynamicChangeActivity.class));
+                break;
+            case R.id.tv_to_list:
+                startActivity(new Intent(MainActivity.this, ListActivity.class));
                 break;
         }
     }
@@ -54,5 +58,6 @@ public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuIte
         toolbar.setOnMenuItemClickListener(this);
         findViewById(R.id.tv_to_show).setOnClickListener(this);
         findViewById(R.id.tv_to_dynamic_change).setOnClickListener(this);
+        findViewById(R.id.tv_to_list).setOnClickListener(this);
     }
 }

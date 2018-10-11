@@ -4,6 +4,7 @@
     <!-- MainActivity begin -->
     <string name="main_to_show">Click to ShowActivity.</string>
     <string name="main_to_dynamic_change">Click to DynamicChangeActivity.</string>
+    <string name="main_to_list">Click to ListActivity.</string>
     <!-- MainActivity end -->
 
     <!-- DynamicChangeActivity begin -->
